@@ -100,13 +100,15 @@ The environment contains a custom AWS VPC with separate public and private netwo
 
 ### Architecture Screenshot
 
-<img width="703" height="526" alt="image" src="https://github.com/user-attachments/assets/96923eb6-a1d2-4ab3-a721-6a0e33bbbd74" />
+<img width="1408" height="768" alt="h" src="https://github.com/user-attachments/assets/e53142df-0fa0-412d-bbc2-f1d182740957" />
 
 ---
 
 # Infrastructure Components
 
 ## 1. AWS VPC
+
+<img width="1906" height="793" alt="2  VPC" src="https://github.com/user-attachments/assets/e4f4e05f-a581-4825-b78b-63fe9c92e922" />
 
 A dedicated VPC is created with:
 
@@ -138,7 +140,7 @@ The public subnet contains the EC2 security-test server.
 
 Instances launched in this subnet can receive public IPv4 addresses and communicate through the Internet Gateway according to their routing and security rules.
 
-![VPC and Subnets](docs/screenshots/vpc-subnets.png)
+<img width="1907" height="453" alt="3  VPC → Subnets" src="https://github.com/user-attachments/assets/79191751-74b5-4811-bede-404ed663bfcd" />
 
 ---
 
@@ -173,8 +175,6 @@ Local VPC traffic remains available through:
 10.0.0.0/16 → local
 ```
 
-![Route Tables](docs/screenshots/route-tables.png)
-
 ---
 
 # Security Layer
@@ -198,7 +198,7 @@ Normal outbound Internet traffic is permitted.
 
 The SSH rule is restricted to a single administrator IP instead of exposing port 22 publicly.
 
-![Security Group](docs/screenshots/phase5-security-group.png)
+<img width="1909" height="549" alt="4  EC2 → Security Groups" src="https://github.com/user-attachments/assets/54b323dc-fb22-45e5-b5d3-f91aebe43edb" />
 
 ---
 
@@ -220,8 +220,8 @@ This demonstrates the difference between:
 Security Group → Instance-level security
 Network ACL    → Subnet-level security
 ```
-
-![Network ACL](docs/screenshots/phase5-network-acl.png)
+<img width="1907" height="635" alt="7  Network ACL inbound" src="https://github.com/user-attachments/assets/f924cea8-dd3f-4d9b-810c-c93dfd063088" />
+<img width="1907" height="635" alt="7  Network ACL inbound" src="https://github.com/user-attachments/assets/77508213-31ed-4646-a9eb-19eb5f93e13b" />
 
 ---
 
@@ -248,7 +248,7 @@ The instance is used for:
 * VPC Flow Log generation
 * Security rule validation
 
-![EC2 Instance](docs/screenshots/ec2-instance.png)
+<img width="1887" height="584" alt="5  EC2 Instance" src="https://github.com/user-attachments/assets/d3f18f0a-e5cb-4d7e-84ff-9242c4b67ba1" />
 
 ---
 
@@ -309,7 +309,8 @@ REJECT
 
 The logs provide visibility into network communication and rejected connection attempts.
 
-![VPC Flow Logs](docs/screenshots/phase5-flow-logs.png)
+<img width="1905" height="649" alt="9  vpc-flow-logs-active" src="https://github.com/user-attachments/assets/782d6358-f2a2-420a-9b1d-b1ee0c75ca71" />
+<img width="1882" height="806" alt="10-vpc-flow-log-traffic" src="https://github.com/user-attachments/assets/d3e54042-b938-4a67-b6aa-25f7cd3473c5" />
 
 ---
 
@@ -331,7 +332,10 @@ Statistic: Average
 
 The alarm changes state when sustained CPU utilization exceeds the configured threshold.
 
-![CPU Alarm](docs/screenshots/cloudwatch-cpu-alarm.png)
+<img width="1899" height="524" alt="12 cloudwatch-security-alarms" src="https://github.com/user-attachments/assets/e4fa2697-2e42-4075-9e5e-52b0c9000a16" />
+<img width="1869" height="825" alt="13 EC2 CPU Alarm — OK" src="https://github.com/user-attachments/assets/8348d24b-4416-4dab-8bcf-8f00c0f3fb09" />
+<img width="1869" height="825" alt="13 EC2 CPU Alarm — OK" src="https://github.com/user-attachments/assets/d81dea16-ee13-4dbd-aedc-a0eb3841c823" />
+<img width="1869" height="825" alt="13 EC2 CPU Alarm — OK" src="https://github.com/user-attachments/assets/d6a40d03-2ebd-4ba1-8176-efaf65b210ef" />
 
 ---
 
@@ -366,8 +370,6 @@ action = REJECT
 The CloudWatch alarm is configured to trigger when rejected traffic exceeds the defined threshold during the monitoring period.
 
 This provides a simple example of automated network-security detection.
-
-![Rejected Traffic Alarm](docs/screenshots/phase5-rejected-traffic-alarm.png)
 
 > A rejected connection does not automatically mean malicious activity. The project uses rejected traffic as a security monitoring signal that requires investigation.
 
@@ -449,7 +451,7 @@ The server listens on:
 
 External TCP connectivity to port 80 was successfully tested.
 
-![HTTP Test](docs/screenshots/phase5-http-test-success.png)
+<img width="1293" height="256" alt="16 http-test-success" src="https://github.com/user-attachments/assets/0a0f5d9e-800b-4914-8c03-019afd120f18" />
 
 ### Flow Log Verification
 
@@ -458,8 +460,6 @@ Both accepted and rejected traffic were observed in VPC Flow Logs.
 ### Security Alarm
 
 Rejected traffic successfully triggered the CloudWatch security alarm.
-
-![Nginx Running](docs/screenshots/phase5-nginx-running.png)
 
 ---
 
@@ -491,87 +491,9 @@ The infrastructure includes resources for:
 
 ---
 
-# Project Structure
-
-```text
-SecureCloudNet/
-│
-├── .gitignore
-├── README.md
-├── PROJECT_PROGRESS.md
-│
-├── terraform/
-│   ├── provider.tf
-│   ├── variables.tf
-│   ├── main.tf
-│   ├── outputs.tf
-│   └── .terraform.lock.hcl
-│
-├── scripts/
-│
-├── docs/
-│   └── screenshots/
-│       ├── aws-architecture.png
-│       ├── vpc-subnets.png
-│       ├── route-tables.png
-│       ├── ec2-instance.png
-│       ├── cloudwatch-cpu-alarm.png
-│       ├── phase5-security-group.png
-│       ├── phase5-network-acl.png
-│       ├── phase5-http-test-success.png
-│       ├── phase5-nginx-running.png
-│       ├── phase5-flow-logs.png
-│       └── phase5-rejected-traffic-alarm.png
-│
-└── architecture/
-```
-
 ---
 
-# Deployment
 
-## Prerequisites
-
-Install:
-
-* AWS CLI
-* Terraform
-* Git
-* An AWS account
-
-Verify the installations:
-
-```bash
-aws --version
-terraform version
-git --version
-```
-
----
-
-## Configure AWS CLI
-
-Configure your AWS credentials locally:
-
-```bash
-aws configure
-```
-
-Set the AWS region to:
-
-```text
-ap-south-1
-```
-
-Verify the authenticated identity:
-
-```bash
-aws sts get-caller-identity
-```
-
-> Never commit AWS access keys, secret keys, session tokens, or private keys to GitHub.
-
----
 
 # Terraform Deployment
 
@@ -611,122 +533,6 @@ Apply the infrastructure:
 terraform apply
 ```
 
-Confirm the deployment when Terraform asks for approval.
-
----
-
-# Verify Infrastructure
-
-Check Terraform state:
-
-```bash
-terraform state list
-```
-
-Check EC2 instances:
-
-```bash
-aws ec2 describe-instances \
-  --query "Reservations[*].Instances[*].[InstanceId,State.Name,PrivateIpAddress,PublicIpAddress]" \
-  --output table
-```
-
-Check VPC Flow Logs:
-
-```bash
-aws ec2 describe-flow-logs \
-  --query "FlowLogs[*].[FlowLogId,FlowLogStatus,TrafficType]" \
-  --output table
-```
-
-Check CloudWatch alarms:
-
-```bash
-aws cloudwatch describe-alarms \
-  --output table
-```
-
-Check CloudTrail:
-
-```bash
-aws cloudtrail get-trail-status \
-  --name SecureCloudNet-Trail
-```
-
----
-
-# Destroy Infrastructure
-
-When the lab is no longer required, destroy the resources to avoid unnecessary AWS charges.
-
-From the Terraform directory:
-
-```bash
-terraform destroy
-```
-
-Review the resources carefully before confirming.
-
-> AWS billing depends on the resources and usage in your account. The project intentionally avoids expensive always-on components such as NAT Gateway, but users should still monitor their AWS billing and Free Tier usage.
-
----
-
-# Cost-Conscious Design
-
-The project was designed with a low-cost laboratory environment in mind.
-
-Cost-control decisions include:
-
-* `t3.micro` EC2 instance
-* No NAT Gateway
-* Short CloudWatch log retention
-* Limited monitoring resources
-* No unnecessary load balancers
-* No managed Kubernetes cluster
-* No expensive security appliances
-* Manual destruction after lab usage
-
-An AWS Budget/Cost Alert can also be configured to notify the account owner when spending approaches a chosen threshold.
-
-**Important:** AWS Budgets provide alerts but do not guarantee that spending will never exceed the configured amount.
-
----
-
-# Security Considerations
-
-This project intentionally demonstrates several security principles.
-
-### Least Privilege
-
-Administrative access is restricted where practical, particularly SSH access.
-
-### Defense in Depth
-
-Multiple controls are used:
-
-```text
-Security Group
-      +
-Network ACL
-      +
-VPC Flow Logs
-      +
-CloudWatch Monitoring
-      +
-CloudTrail
-```
-
-### Visibility
-
-Network and AWS API activity are logged for investigation.
-
-### Secure Administration
-
-AWS Systems Manager provides an alternative management mechanism to direct SSH access.
-
-### Credential Protection
-
-Sensitive credentials and private keys are excluded from Git using `.gitignore`.
 
 ---
 
@@ -783,102 +589,6 @@ This project demonstrates practical experience in:
 
 ---
 
-# Project Evidence
-
-Screenshots documenting the implementation are stored in:
-
-```text
-docs/screenshots/
-```
-
-Recommended evidence includes:
-
-1. AWS VPC and subnet configuration
-2. Route tables
-3. Internet Gateway
-4. EC2 instance
-5. Security Group
-6. Network ACL
-7. Nginx running
-8. HTTP connectivity test
-9. VPC Flow Logs
-10. CloudWatch CPU alarm
-11. Rejected traffic alarm
-12. CloudTrail configuration
-13. Final Terraform plan
-
----
-
-# Final Terraform Validation
-
-Before completing the project, Terraform was verified with:
-
-```bash
-terraform plan
-```
-
-Result:
-
-```text
-No changes. Your infrastructure matches the configuration.
-```
-
-This confirms that the deployed infrastructure is synchronized with the Terraform configuration.
-
----
-
-# Future Improvements
-
-Possible future enhancements include:
-
-* Automated security testing
-* AWS Config rules
-* GuardDuty integration
-* SNS security notifications
-* CloudWatch dashboards
-* More advanced traffic analysis
-* Private EC2 workloads
-* Bastion-free administration using SSM
-* Automated incident-response scripts
-* Additional Terraform modules
-* CI/CD validation using GitHub Actions
-
-These features can be added while maintaining the project's cost-conscious design.
-
----
-
-# Conclusion
-
-**SecureCloudNet** demonstrates how AWS networking, security controls, monitoring, logging, and Infrastructure as Code can be combined into a practical cloud security laboratory.
-
-The project goes beyond simply creating an AWS VPC by implementing:
-
-```text
-Infrastructure
-      ↓
-Network Security
-      ↓
-Traffic Monitoring
-      ↓
-Security Detection
-      ↓
-Audit Logging
-      ↓
-Security Testing
-      ↓
-Terraform Automation
-```
-
-The result is a reproducible AWS environment that demonstrates practical **Cloud Networking, Cybersecurity, AWS, Linux, Monitoring, and DevOps skills**.
-
----
-
 ## Author
 
 **Udeesha Jayendra**
-
-GitHub: [UdeeshaJayendra](https://github.com/UdeeshaJayendra)
-
-Project Repository:
-
-[SecureCloudNet — Automated AWS Network Security & Monitoring Lab](https://github.com/UdeeshaJayendra/secure-cloud-net-with-AWS)
