@@ -26,8 +26,6 @@ The project builds a secure AWS network using **Terraform** and implements multi
 * Rejected network traffic detection
 * Automated infrastructure deployment with Terraform
 
-The project is designed to remain **cost-conscious**, avoiding expensive components such as NAT Gateways and unnecessary always-on services.
-
 ---
 
 ## Project Objectives
@@ -102,9 +100,7 @@ The environment contains a custom AWS VPC with separate public and private netwo
 
 ### Architecture Screenshot
 
-![AWS Architecture](docs/screenshots/aws-architecture.png)
-
-> Add your final architecture diagram to `docs/screenshots/aws-architecture.png`.
+<img width="703" height="526" alt="image" src="https://github.com/user-attachments/assets/96923eb6-a1d2-4ab3-a721-6a0e33bbbd74" />
 
 ---
 
