@@ -1,0 +1,71 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+crash.log
+crash.*.log
+*.tfplan
+*.tfplan.*
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Terraform sensitive/local files
+terraform.tfvars
+terraform.tfvars.json
+*.auto.tfvars
+*.auto.tfvars.json
+
+# Terraform lock file
+# Keep this file in Git for reproducible provider versions
+# .terraform.lock.hcl
+
+# AWS credentials
+.aws/
+credentials
+config
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# SSH/private keys
+*.pem
+*.key
+id_rsa
+id_rsa.pub
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE / Editor
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Node
+node_modules/
+npm-debug.log*
+
+terraform/*.zip
