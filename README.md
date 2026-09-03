@@ -221,7 +221,7 @@ Security Group → Instance-level security
 Network ACL    → Subnet-level security
 ```
 <img width="1907" height="635" alt="7  Network ACL inbound" src="https://github.com/user-attachments/assets/f924cea8-dd3f-4d9b-810c-c93dfd063088" />
-<img width="1907" height="635" alt="7  Network ACL inbound" src="https://github.com/user-attachments/assets/77508213-31ed-4646-a9eb-19eb5f93e13b" />
+<img width="1906" height="567" alt="7  Network ACL Outbound" src="https://github.com/user-attachments/assets/58a54db4-eae0-4866-98a6-ea381efb43bb" />
 
 ---
 
