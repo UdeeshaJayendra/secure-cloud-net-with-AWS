@@ -334,8 +334,8 @@ The alarm changes state when sustained CPU utilization exceeds the configured th
 
 <img width="1899" height="524" alt="12 cloudwatch-security-alarms" src="https://github.com/user-attachments/assets/e4fa2697-2e42-4075-9e5e-52b0c9000a16" />
 <img width="1869" height="825" alt="13 EC2 CPU Alarm — OK" src="https://github.com/user-attachments/assets/8348d24b-4416-4dab-8bcf-8f00c0f3fb09" />
-<img width="1869" height="825" alt="13 EC2 CPU Alarm — OK" src="https://github.com/user-attachments/assets/d81dea16-ee13-4dbd-aedc-a0eb3841c823" />
-<img width="1869" height="825" alt="13 EC2 CPU Alarm — OK" src="https://github.com/user-attachments/assets/d6a40d03-2ebd-4ba1-8176-efaf65b210ef" />
+<img width="1873" height="830" alt="14 Rejected Traffic Alarm — ALARM" src="https://github.com/user-attachments/assets/f2a81a3b-a086-4730-9239-d2ff34d7efd2" />
+
 
 ---
 
