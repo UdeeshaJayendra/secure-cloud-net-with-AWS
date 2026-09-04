@@ -1,4 +1,4 @@
-# SecureCloudNet — Automated AWS Network Security & Monitoring Lab
+ # SecureCloudNet — Automated AWS Network Security & Monitoring Lab
 
 ![AWS](https://img.shields.io/badge/AWS-Cloud-orange)
 ![Terraform](https://img.shields.io/badge/Terraform-Infrastructure%20as%20Code-purple)
@@ -65,7 +65,7 @@ The environment contains a custom AWS VPC with separate public and private netwo
                      /              \
           +----------------+    +----------------+
           | Public Subnet  |    | Private Subnet |
-          | 10.0.1.0/24   |    | 10.0.2.0/24    |
+          | 10.0.1.0/24    |    | 10.0.2.0/24    |
           |                |    |                |
           | EC2 Server     |    | Future Private |
           | Nginx          |    | Workloads      |
