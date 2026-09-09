@@ -46,63 +46,8 @@ The main objectives of SecureCloudNet are to:
 ## Architecture
 
 The environment contains a custom AWS VPC with separate public and private network segments.
+<img width="1408" height="768" alt="6" src="https://github.com/user-attachments/assets/04a4481b-f2ce-4747-8caa-d607586b5e82" />
 
-```text
-                         Internet
-                            |
-                            |
-                   +------------------+
-                   | Internet Gateway |
-                   +------------------+
-                            |
-                            |
-                    +---------------+
-                    |   AWS VPC     |
-                    |  10.0.0.0/16  |
-                    +---------------+
-                       /          \
-                      /            \
-                     /              \
-          +----------------+    +----------------+
-          | Public Subnet  |    | Private Subnet |
-          | 10.0.1.0/24    |    | 10.0.2.0/24    |
-          |                |    |                |
-          | EC2 Server     |    | Future Private |
-          | Nginx          |    | Workloads      |
-          +----------------+    +----------------+
-                  |
-                  |
-        +----------------------+
-        | Security Group       |
-        | Network ACL          |
-        +----------------------+
-                  |
-                  v
-        +----------------------+
-        | VPC Flow Logs        |
-        +----------------------+
-                  |
-                  v
-        +----------------------+
-        | CloudWatch Logs      |
-        | Metric Filter        |
-        | Security Alarms      |
-        +----------------------+
-
-        AWS API Activity
-               |
-               v
-        +----------------------+
-        | AWS CloudTrail       |
-        | S3 Log Storage       |
-        +----------------------+
-```
-
-### Architecture Screenshot
-
-<img width="1408" height="768" alt="h" src="https://github.com/user-attachments/assets/e53142df-0fa0-412d-bbc2-f1d182740957" />
-
----
 
 # Infrastructure Components
 
