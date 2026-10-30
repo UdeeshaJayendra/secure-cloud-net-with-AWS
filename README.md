@@ -46,8 +46,7 @@ The main objectives of SecureCloudNet are to:
 ## Architecture
 
 The environment contains a custom AWS VPC with separate public and private network segments.
-<img width="1408" height="768" alt="6" src="https://github.com/user-attachments/assets/04a4481b-f2ce-4747-8caa-d607586b5e82" />
-
+<img width="1086" height="1448" alt="04" src="https://github.com/user-attachments/assets/01b2a20e-323c-4a21-9f59-213135b5c5e3" />
 
 # Infrastructure Components
 
